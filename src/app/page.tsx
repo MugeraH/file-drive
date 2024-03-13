@@ -7,10 +7,13 @@ import {
   SignedOut,
   SignedIn,
 } from "@clerk/nextjs";
-import Image from "next/image";
+import { useMutation } from "convex/react";
+
+import { api } from "../../convex/_generated/api";
 
 export default function Home() {
   const session = useSession();
+  const createFile = useMutation(api.files.createFile);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <SignedOut>
@@ -23,6 +26,17 @@ export default function Home() {
           <Button variant="destructive">SignOut</Button>
         </SignOutButton>
       </SignedIn>
+
+      <Button
+        variant="secondary"
+        onClick={() => {
+          createFile({
+            name: "Fiona Stark",
+          });
+        }}
+      >
+        ClickMe
+      </Button>
     </main>
   );
 }
