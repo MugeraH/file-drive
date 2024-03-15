@@ -1,4 +1,4 @@
-import { UserButton, UserProfile } from "@clerk/nextjs";
+import { OrganizationSwitcher, UserButton, UserProfile } from "@clerk/nextjs";
 type Props = {};
 
 function Header({}: Props) {
@@ -6,7 +6,9 @@ function Header({}: Props) {
     <div className="border-b py-4 bg-gray-50">
       <div className="container mx-auto justify-between items-center flex">
         Hughes Drive
-        <UserButton />
+        <div className="flex gap-2">
+          <OrganizationSwitcher /> <UserButton />
+        </div>
       </div>
     </div>
   );
