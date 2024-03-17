@@ -8,6 +8,10 @@ export const createFile = mutation({
   },
   async handler(ctx, args) {
     const identity = await ctx.auth.getUserIdentity();
+
+    console.log(identity);
+    console.log("hughes");
+
     if (!identity) {
       throw new ConvexError("You must be logged in to create a file");
     }
