@@ -23,8 +23,9 @@ http.route({
       });
 
       //factual-swan-76.clerk.accounts.dev|user_2dojq83DXmzoCMU184tXXsBlVHF
+      //https://factual-swan-76.clerk.accounts.dev|user_2dpZPExllxjL4U2IknxpUjv0niN
 
-      https: switch (result.type) {
+      switch (result.type) {
         case "user.created":
           await ctx.runMutation(internal.users.createUser, {
             // tokenIdentifier: `https://${process.env.CLERK_HOSTNAME}|${result.data.id}`,
